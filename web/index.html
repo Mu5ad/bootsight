@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BootSight — diagnóstico de arranque</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="dot"></span> BootSight</div>
+  <div class="meta" id="meta">cargando…</div>
+</header>
+
+<main>
+  <section class="capture">
+    <label for="foto" class="drop" id="drop">
+      <input id="foto" type="file" accept="image/*" capture="environment" hidden>
+      <div id="dropTxt">
+        <strong>Fotografía la pantalla</strong>
+        <span>BIOS, bluescreen, kernel panic, RAID</span>
+      </div>
+      <img id="preview" alt="">
+    </label>
+    <textarea id="notas" rows="2" placeholder="Lo que has visto u oído (opcional): pitidos, olor, luces…"></textarea>
+    <button id="go" disabled>Diagnosticar</button>
+  </section>
+
+  <section id="out" class="out" hidden>
+    <div class="card">
+      <div class="row">
+        <span class="pill" id="fase">—</span>
+        <span class="pill conf" id="conf">—</span>
+        <span class="pill mock" id="mockTag" hidden>mock</span>
+      </div>
+      <h1 id="estado">—</h1>
+      <ul id="causas" class="causas"></ul>
+      <div id="ver" class="ver"></div>
+      <div id="nolisto" class="nolisto" hidden></div>
+    </div>
+
+    <div class="card">
+      <h2>Plan</h2>
+      <p id="resumen" class="resumen"></p>
+      <ol id="pasos" class="pasos"></ol>
+      <div id="stop" class="stop" hidden></div>
+    </div>
+  </section>
+
+  <p class="policy">Solo lectura por defecto. La ejecución local está desactivada salvo <code>BOOTSIGHT_EXEC=1</code>.</p>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
